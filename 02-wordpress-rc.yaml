@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: redmine
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: redmine
+    spec:
+      containers:
+      - name: redmine
+        image: redmine
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
